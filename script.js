@@ -1,8 +1,9 @@
-let getInput = document.getElementById("user-input");
+//let getInput = document.getElementById("user-input");
 let output = document.getElementById("output");
 let button = document.getElementById("check-button");
 
 button.onclick = function(){
+    let getInput = document.getElementById("user-input");
     getInput = getInput.value;
     let flag= true;
     if(getInput.length < 8)
@@ -11,7 +12,9 @@ button.onclick = function(){
         console.log("too short");
         //innerhtml for these
     }
-    if(!(getInput.includes('!' || '@' ||'#' || '$' || '^' || '&' || '*'))){
+    //this feels like it could be shorter, but when I wrote all the symbols togther with || 's it only read !'s 
+    if(!(getInput.includes('!') || getInput.includes('@') || getInput.includes('#') || getInput.includes('$') || getInput.includes('%')
+         || getInput.includes('^') || getInput.includes('&'))){
         flag= false;
         console.log("needs special Char")
     }
@@ -19,11 +22,12 @@ button.onclick = function(){
         flag= false;
         console.log("try again with no spaces")
     }
-    if (isLowerCase(getInput)){
+
+    if (getInput === getInput.toLowerCase()){
         flag= false;
         console.log("needs an uppercase")
     }
-    if (isUpperCase(getInput)){
+    if (getInput === getInput.toUpperCase()){
         flag= false;
         console.log("needs a lowercase")
     }
@@ -32,8 +36,13 @@ button.onclick = function(){
         console.log("needs a digit")
     }
 
-    function isLowerCase(getInput){
-        return str === str.toLowerCase();
+    function hasDigit(getInput){
+        for(let char of getInput){
+            if(!isNaN(char)){
+                return true;
+            }
+        }
+        return false;
     }
     
 }
