@@ -30,7 +30,7 @@ inputEars.addEventListener("input", function(){
 function passLength(getInput){
     if(getInput.length < 8){
             output.style.color = "red"
-            output.innerHTML = "Password is too short"
+            output.innerHTML = "I'd never make a password that short"
             return false
         }
         return true
@@ -41,7 +41,7 @@ function specialChar(getInput){
     if(!(getInput.includes('!') || getInput.includes('@') || getInput.includes('#') || getInput.includes('$') || getInput.includes('%')
         || getInput.includes('^') || getInput.includes('&') || getInput.includes('*'))){
     output.style.color = "red"
-    output.innerHTML = "needs special Char"
+    output.innerHTML = "ok, but kind@ boring...$pice !t up!"
     return false
     }
     return true
@@ -50,7 +50,7 @@ function specialChar(getInput){
 function noSpace(getInput){
     if((getInput.includes(' '))){
         output.style.color = "red"
-        output.innerHTML = "try again with no spaces"
+        output.innerHTML = "why are you putting spaces?"
         return false
     }
     return true
@@ -59,7 +59,7 @@ function noSpace(getInput){
 function allLower(getInput){
     if (getInput === getInput.toLowerCase()){
         output.style.color = "red"
-        output.innerHTML = "needs an uppercase"
+        output.innerHTML = "At least capitalize something..."
         return false
     }
     return true
@@ -67,7 +67,7 @@ function allLower(getInput){
 function allUpper(getInput){
     if (getInput === getInput.toUpperCase()){
         output.style.color = "red"
-        output.innerHTML = "needs a lowercase"
+        output.innerHTML = "Woah calm down. You don't have to CAPSLOCK"
         return false
     }
     return true;
@@ -80,7 +80,7 @@ function hasDigit(getInput){
         }
     }
     output.style.color = "red"
-    output.innerHTML = "Add a number please"
+    output.innerHTML = "How will I call if you don't give a number?"
     return false;
 }
 

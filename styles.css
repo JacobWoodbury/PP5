@@ -10,6 +10,10 @@ h3 span{
     border-radius: 5%;
     padding: 10px;
 }
+.little{
+    font-size: small;
+    margin-left: 15px;
+}
 
 #comment-box{
     text-align: center;
@@ -18,6 +22,9 @@ h3 span{
 #output{
     color: aquamarine;
     font-size: larger;
+    display: inline-block;
+    background-color: lightgreen;
+    
 }
 
 #interface{
