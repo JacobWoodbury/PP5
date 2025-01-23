@@ -7,6 +7,7 @@ let inputEars = document.getElementById("user-input");
 // I found that when I had no input I was passing one test which scared me. 
 // I realized later that it's because no text makes the no spaces rule true. I learned that it reads a space as a number though.
 inputEars.addEventListener("input", function(){
+    output.style.color = "green"
     output.innerHTML = "Great Password"
     let getInput = document.getElementById("user-input");
     getInput = getInput.value;
@@ -28,6 +29,7 @@ inputEars.addEventListener("input", function(){
 
 function passLength(getInput){
     if(getInput.length < 8){
+            output.style.color = "red"
             output.innerHTML = "Password is too short"
             return false
         }
@@ -38,6 +40,7 @@ function specialChar(getInput){
     //this feels like it could be shorter, but when I wrote all the symbols togther with || 's it only read !'s 
     if(!(getInput.includes('!') || getInput.includes('@') || getInput.includes('#') || getInput.includes('$') || getInput.includes('%')
         || getInput.includes('^') || getInput.includes('&') || getInput.includes('*'))){
+    output.style.color = "red"
     output.innerHTML = "needs special Char"
     return false
     }
@@ -46,6 +49,7 @@ function specialChar(getInput){
 
 function noSpace(getInput){
     if((getInput.includes(' '))){
+        output.style.color = "red"
         output.innerHTML = "try again with no spaces"
         return false
     }
@@ -54,6 +58,7 @@ function noSpace(getInput){
 
 function allLower(getInput){
     if (getInput === getInput.toLowerCase()){
+        output.style.color = "red"
         output.innerHTML = "needs an uppercase"
         return false
     }
@@ -61,6 +66,7 @@ function allLower(getInput){
 }
 function allUpper(getInput){
     if (getInput === getInput.toUpperCase()){
+        output.style.color = "red"
         output.innerHTML = "needs a lowercase"
         return false
     }
@@ -73,6 +79,7 @@ function hasDigit(getInput){
             return true;
         }
     }
+    output.style.color = "red"
     output.innerHTML = "Add a number please"
     return false;
 }
