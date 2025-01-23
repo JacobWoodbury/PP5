@@ -12,17 +12,17 @@ inputEars.addEventListener("input", function(){
     getInput = getInput.value;
     let flag =0;
     flag += passLength(getInput);
-    console.log(passLength(getInput))
+        console.log("Length " + passLength(getInput))
     flag += specialChar(getInput);
-    console.log(specialChar(getInput))
+        console.log("spc Char " + specialChar(getInput))
     flag += noSpace(getInput);
-    console.log(noSpace(getInput))
+        console.log("no space " + noSpace(getInput))
     flag += allLower(getInput);
-    console.log(allLower(getInput))
+        console.log("all lower " + allLower(getInput))
     flag += allUpper(getInput);
-    console.log(allUpper(getInput))
+        console.log("all upper " + allUpper(getInput))
     flag += !hasDigit(getInput);
-    console.log(hasDigit(getInput))
+        console.log("numbers " + hasDigit(getInput))
     console.log(getInput + " passed " + flag + " tests")
 })
 
@@ -81,22 +81,33 @@ function hasDigit(getInput){
 
 
 button.onclick = function(){
-    output.innerHTML = ""
-    //I moved this down here because I was having problems after the first click.
+    //default
+    output.innerHTML = "You passed!"
+    document.getElementById('comment-box').innerHTML = "";
+    let explanation = document.createElement('div');
     let getInput = document.getElementById("user-input");
     getInput = getInput.value;
-    let flag= true;
-    flag = passLength(getInput);
-    flag = specialChar(getInput);
-    flag = noSpace(getInput);
-    flag = allLower(getInput);
-    flag = allUpper(getInput);
-    flag = !hasDigit(getInput);
-   
-    if(passLength(getInput) && specialChar(getInput) && noSpace(getInput) && allLower(getInput) && allUpper(getInput) && !hasDigit(getInput))
-        {
-            output.innerHTML = "Great Password!"
+    let check = []
+    
+    check[0] = passLength(getInput);
+    check[1] = specialChar(getInput);
+    check[2] = noSpace(getInput);
+    check[3] = allLower(getInput);
+    check[4] = allUpper(getInput);
+    check[5] = hasDigit(getInput);
+
+    let count =0;
+   for(let i=0;i<6;i++)
+    {
+        if (!check[i]){
+            count++
+            let testFail = document.createElement('p')
+            document.getElementById('comment-box').appendChild(explanation)
+            testFail.innerHTML = "You failed test " + (i+1)
+            explanation.appendChild(testFail)
         }
+    }
+    console.log(count + " tests failed")
        
 }
 
